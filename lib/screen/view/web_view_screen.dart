@@ -20,22 +20,19 @@ class _web_screenState extends State<web_screen> {
         title: Text("Mutiple Apps"),
         centerTitle: true,
       ),
-    body: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),itemCount: 10, itemBuilder: (context, index) {
+    body: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 196, ),itemCount: 10, itemBuilder: (context, index) {
         return InkWell(
           onTap: (){
-            Navigator.pushNamed(context, 'web');
+            Navigator.pushNamed(context, 'web_screen2');
             web_view_providerF!.loadurl(index);
           },
           child: Container(
             margin: EdgeInsets.all(10),
-
-            color: Colors.red,
             child: Column(
               children: [
                 Image.asset("${web_view_providerF!.images[index]}",fit: BoxFit.cover,),
                 Spacer(),
-                Text("${web_view_providerF!.name[index]}",
-                ),
+                Text("${web_view_providerF!.name[index]}"),
               ],
             ),
           ),
